@@ -5,7 +5,6 @@ package health
 * @date 2018/6/18 22:11
  */
 import (
-	"io"
 	"net/http"
 )
 
@@ -25,5 +24,7 @@ func HealthCheckHandle(w http.ResponseWriter, req *http.Request) {
 
 	// 我们可以报告我们的数据库的状态或我们的缓存
 	// 例如Redis，执行一个简单的PING,并将它们包含在响应中
-	io.WriteString(w, `{"alive": true}`) // 浏览器页面输出：{"alive": true}
+	//io.WriteString(w, `{"alive": true}`) // 浏览器页面输出：{"alive": true}
+	w.Write([]byte("Gorilla mux example!\n")) // Gorilla mux example!
+	w.Write([]byte(`{"alive": true}`))        // 浏览器页面输出：{"alive": true}
 }
