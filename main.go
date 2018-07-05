@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"flag"
-	"fmt"
 	"log"
 	"net/http"
 
@@ -33,7 +32,8 @@ func init() {
 
 func main() {
 	flag.Parse()
-	var address = fmt.Sprintf("%s:%d", hostname, port)
+	//var address = fmt.Sprintf("%s:%d", hostname, port)
+	var address = ":8080"
 	log.Println("REST server正在监听", address)
 
 	// 注册router
