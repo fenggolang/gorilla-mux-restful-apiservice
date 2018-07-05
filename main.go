@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"gorilla-mux-restful-apiservice/health"
+	_ "net/http/pprof"
 
 	"github.com/gorilla/mux"
 )
@@ -26,8 +27,8 @@ var (
 
 /* 注册命令行选项 */
 func init() {
-	flag.StringVar(&hostname, "hostname", "0.0.0.0", "指定的主机名或者IP在rest server启动后将会监听")
-	flag.IntVar(&port, "port", 8899, "rest server将会监听的端口")
+	flag.StringVar(&hostname, "hostname", "localhost", "指定的主机名或者IP在rest server启动后将会监听")
+	flag.IntVar(&port, "port", 8888, "rest server将会监听的端口")
 }
 
 func main() {
@@ -60,10 +61,18 @@ func main() {
 	}
 	// 启动rest server监听
 	err := http.ListenAndServe(address, router)
+	//err := http.ListenAndServe(address, nil) // 这个可以访问:http:localhost:8888/debug/pprof
+	//err := http.ListenAndServe(address, router)
 	if err != nil {
 		log.Fatalln("ListenAndServe err:", err)
 	}
+
 	log.Println("Server end")
+
+	// 再开一个协程，监听端口注册pprof到路由中
+	/*go func() {
+		http.ListenAndServe(":7777", nil)
+	}()*/
 }
 
 // handler 处理函数:GET请求
