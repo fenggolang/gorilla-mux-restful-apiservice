@@ -75,9 +75,11 @@ func main() {
 	log.Println("Server end")
 
 	// 再开一个协程，监听端口注册pprof到路由中
-	/*go func() {
+
+	go func() {
 		http.ListenAndServe(":7777", nil)
-	}()*/
+	}()
+
 }
 
 func HelloGolang(w http.ResponseWriter,req *http.Request) {
