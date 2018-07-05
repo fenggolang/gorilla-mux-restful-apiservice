@@ -28,7 +28,7 @@ var (
 /* 注册命令行选项 */
 func init() {
 	flag.StringVar(&hostname, "hostname", "localhost", "指定的主机名或者IP在rest server启动后将会监听")
-	flag.IntVar(&port, "port", 8888, "rest server将会监听的端口")
+	flag.IntVar(&port, "port", 8080, "rest server将会监听的端口")
 }
 
 func main() {
@@ -38,6 +38,11 @@ func main() {
 
 	// 注册router
 	router := mux.NewRouter().StrictSlash(true)
+
+	// hello golang
+	{
+		router.HandleFunc("/",HelloGolang)
+	}
 
 	// GET routes
 	{
@@ -73,6 +78,12 @@ func main() {
 	/*go func() {
 		http.ListenAndServe(":7777", nil)
 	}()*/
+}
+
+func HelloGolang(w http.ResponseWriter,req *http.Request) {
+	w.Write([]byte("<h1>Hello Golang</h1></p>" +
+					"<h1>Hello Golang</h1></p>" +
+					"<h1>Hello Golang</h1></p>"))
 }
 
 // handler 处理函数:GET请求
