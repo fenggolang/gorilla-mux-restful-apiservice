@@ -1,17 +1,8 @@
 package health
 
-/**
-* @author wangpengcheng@ccssoft.com.cn
-* @date 2018/6/18 22:11
- */
 import (
 	"net/http"
 )
-
-/**
-* @author wangpengcheng@ccssoft.com.cn
-* @date 2018/6/18 22:05
- */
 
 /**
 在Go Web应用程序中测试处理程序非常简单，多路复用器不会使得这个问题更复杂。

@@ -9,16 +9,12 @@ import (
 	"io/ioutil"
 	"time"
 
-	"gorilla-mux-restful-apiservice/health"
+	"github.com/fenggolang/gorilla-mux-restful-apiservice/health"
 	_ "net/http/pprof"
 
 	"github.com/gorilla/mux"
 )
 
-/**
-* @author wangpengcheng@ccssoft.com.cn
-* @date 2018/6/11 23:30
- */
 var (
 	hostname string
 	port     int

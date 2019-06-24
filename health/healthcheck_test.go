@@ -6,11 +6,6 @@ import (
 	"testing"
 )
 
-/**
-* @author wangpengcheng@ccssoft.com.cn
-* @date 2018/6/18 22:33
- */
-
 func TestHealthCheckHandle(t *testing.T) {
 	// 创建一个请求传递给我们的处理程序。我们现在没用任何查询参数，所以我们会传递"nil"作为第三个参数
 	req, err := http.NewRequest("GET", "/health", nil)
