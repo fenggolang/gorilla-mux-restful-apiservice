@@ -35,7 +35,7 @@ func main() {
 	// 注册router
 	router := mux.NewRouter().StrictSlash(true)
 
-	// hello golang
+	// hello golang ggg
 	{
 		router.HandleFunc("/",HelloGolang)
 	}
