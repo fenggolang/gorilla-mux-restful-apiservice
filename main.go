@@ -40,7 +40,7 @@ func main() {
 		router.HandleFunc("/",HelloGolang)
 	}
 
-	// GET routes
+	// GET routes    
 	{
 		// curl -XGET http://172.40.4.130:8080/api/service/get?servicename=wpc
 		// {"name":"wpc","result":"succ"}
