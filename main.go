@@ -3,15 +3,13 @@ package main
 import (
 	"encoding/json"
 	"flag"
+	"io/ioutil"
 	"log"
 	"net/http"
-
-	"io/ioutil"
+	_ "net/http/pprof"
 	"time"
 
 	"github.com/fenggolang/gorilla-mux-restful-apiservice/health"
-	_ "net/http/pprof"
-
 	"github.com/gorilla/mux"
 )
 
@@ -37,10 +35,10 @@ func main() {
 
 	// hello golang ggg
 	{
-		router.HandleFunc("/",HelloGolang)
+		router.HandleFunc("/", HelloGolang)
 	}
 
-	// GET routes    
+	// GET routes
 	{
 		// curl -XGET http://172.40.4.130:8080/api/service/get?servicename=wpc
 		// {"name":"wpc","result":"succ"}
@@ -78,10 +76,10 @@ func main() {
 
 }
 
-func HelloGolang(w http.ResponseWriter,req *http.Request) {
+func HelloGolang(w http.ResponseWriter, req *http.Request) {
 	w.Write([]byte("<h1>Hello Golang</h1></p>" +
-					"<h1>Hello Golang</h1></p>" +
-					"<h1>Hello Golang</h1></p>"))
+		"<h1>Hello Golang</h1></p>" +
+		"<h1>Hello Golang</h1></p>"))
 }
 
 // handler 处理函数:GET请求
